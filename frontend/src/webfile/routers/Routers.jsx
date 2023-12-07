@@ -84,12 +84,14 @@ function Routers() {
     }
     if (UQuyentruyvan.includes("chamcong") || UQuyentruyvan === 'admin') {
         if (UQuyentruyvan.includes("them") || UQuyentruyvan === 'admin') {
-            routes.push(<Route path="/quanlychamcong/quanlycalamviec/chamcong" element={<Chamcong />} />,);
+     
         }
         if (UQuyentruyvan.includes("sua") || UQuyentruyvan === 'admin') {
             routes.push(<Route path="/quanlychamcong/quanlycalamviec/Chinhsuacc/:id" element={<Chinhsuacc />} />,);
         }
         routes.push(<Route path="/quanlychamcong/quanlycalamviec/chamcongcanhan/:id" element={<Chamcongcanhan />} />,);
+        routes.push(<Route path="/quanlychamcong/quanlycalamviec/chamcong" element={<Chamcong />} />,);
+  
     }
     return onevent ? (
         <Router>
