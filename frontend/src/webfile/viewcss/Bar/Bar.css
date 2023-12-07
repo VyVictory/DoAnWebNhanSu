@@ -157,6 +157,7 @@ width: 80px;
     font-size: 40px;
     border: 2px black solid;
     margin: 10px;
+    background-color: rgb(191, 255, 234);
 }
 .tachbentrong{
     margin-left: 200px;
@@ -174,6 +175,108 @@ width: 80px;
     color: green;
 }
 .ngoai-them-nut{
-    margin-left: 500px;
     padding-top: 30px;
+    margin-left: 100px;
+    padding-bottom: 20px;
+}
+.themcv-container{
+    padding-left: 600px;
+    background-color: beige;
+    box-shadow: 2px 2px gray;
+}
+.motcombo-input{
+    padding: 10px;
+}
+input{
+    border-radius: 10px;
+    padding-left: 10px;
+    padding-bottom: 10px;
+}
+.tachbentrong-chinhsua{
+    margin-left: 600px;
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+.form-them-nv{
+    border: 2px black solid;
+    font-size: 40px;
+    margin-left: 20px;
+    margin-right: 20px;
+    background-color: rgb(191, 255, 234);
+}
+.namngang{
+    display: flex;
+}
+.ngoai-them-nut-nv{
+    margin-left: 350px;
+}
+.tachbentrong-themnv{
+    margin-left: 330px;
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+.center-form{
+    margin-left: 660px;
+    font-size: 30px;
+}
+button{
+    border-radius: 10px;
+}
+.bt-themcalam{
+    background-color: green;
+    color: white;
+    padding-bottom: 10px;
+}
+.ngoai-bt-themcalam{
+    text-align: center;
+    padding: 20px;
+}
+.chonca-lamviec{
+    width: 200px;
+    height: 80px;
+    font-size: 20px;
+    margin-right: 30px;
+    margin-top: 0px;
+}
+.tachbentrong-themchamcong{
+    padding: 20px;
+}
+.right-form{
+    margin-left: 20px;
+}
+.chamcong-nut{
+    margin-top: 20px;
+    width: 160px;
+    height: 70px;
+    padding-bottom: 20px;
+    background-color: green;
+    color: white;
+}
+.chamcong-nut:hover{
+    background-color: aqua;
+    color: black;
+}
+.chen-left-chamcong{
+    width: 200px;
+}
+.ngoai-them-nut-chamcong{
+    text-align: center;
+}
+.chamcong-nut-chamlai{
+    width: 200px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+.left-margin{
+    margin-left: 60px;
+}
+.flex-chinhsua-input{
+    display: flex;
+}
+.left-tit{
+    margin-top: 50px;
+}
+.bt-them-page{
+    margin-left: 40px;
+    margin-bottom: 20px;
 }

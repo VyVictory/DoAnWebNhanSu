@@ -54,9 +54,13 @@ const Xdcalamviec = () => {
     return (
         <div>
             <h1>QUẢN LÝ CA LÀM VIỆC</h1>
-            <Link to="/quanlychamcong/quanlycalamviec/xaydungcalamviec/themcalamviec" className='btn btn-success'>
+            <div className='bt-them-page'>           
+                 <Link to="/quanlychamcong/quanlycalamviec/xaydungcalamviec/themcalamviec" className='btn btn-success'>
                 Thêm Ca Làm Việc
             </Link>
+
+            </div>
+
             <h3>
             <select onChange={handleChange} value={timtheo}>
                 <option value='Tencalam'>Tên</option>

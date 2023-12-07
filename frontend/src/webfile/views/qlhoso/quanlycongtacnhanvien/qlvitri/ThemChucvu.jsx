@@ -30,22 +30,30 @@ const ThemChucvu = () => {
                 <h1>Thêm Chức Vụ</h1>
                 <form className='form-them' onSubmit={handleSubmit}>
 
-                    <div className='tachbentrong'>
-                        <label>Chức Vụ</label>
-                        <input required type="text" onChange={(e) => setChucVu({ ...ChucVu, Tenchucvu: e.target.value })} placeholder='Nhap Chucvu' /><br />
-                        <label>Quyền Hạng Chức Vụ</label>
-                        <input type='number' onChange={(e) => setChucVu({ ...ChucVu, Quyenhang: e.target.value })} placeholder='Nhập Quyền Hạng'></input>
-                        <span class="ctk-tooltip-container">
-                            <span class="ctk-hover-element" title="Quyền Hạng này phân cấp cho chức vụ nhằm xác định chức vụ lớn hơn cao nhất là 1"> ?</span>
-                        </span><br />
+                    <div className='themcv-container'>
+                        <div className='motcombo-input'>
+                            <label>Chức Vụ: </label><br />
+                            <input required type="text" onChange={(e) => setChucVu({ ...ChucVu, Tenchucvu: e.target.value })} placeholder='Nhập Chức Vụ' />
+                        </div>
+                        <div  className='motcombo-input'>
+                            <label>Quyền Hạng Chức Vụ: </label><br />
+                            <input type='number' onChange={(e) => setChucVu({ ...ChucVu, Quyenhang: e.target.value })} placeholder='Nhập Quyền Hạng'></input>
 
-                        <label>Ghi Chú</label>
-                        <input required type="text" onChange={(e) => setChucVu({ ...ChucVu, Ghichu: e.target.value })} placeholder='Nhap Ghi Chú' /><br />
-                    <div className='ngoai-them-nut'>
-<button className='them-nut'>Them Chucvu</button></div>
+                            <span class="ctk-tooltip-container">
+                                <span class="ctk-hover-element" title="Quyền Hạng này phân cấp cho chức vụ nhằm xác định chức vụ lớn hơn cao nhất là 1"> ?</span>
+                            </span>
+                        </div>
+                        <div className='motcombo-input'>
+                            <label>Ghi Chú: </label><br />
+                            <input required type="text" onChange={(e) => setChucVu({ ...ChucVu, Ghichu: e.target.value })} placeholder='Nhập Ghi Chú' />
+                        </div>
+                        <div className='ngoai-them-nut'>
+                            <button className='them-nut'>Thêm Chức Vụ</button>
+                        </div>
                     </div>
-                    
+
                 </form>
+
             </div>
         </div>
     )

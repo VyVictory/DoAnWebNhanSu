@@ -66,9 +66,12 @@ const Qlthongtinnhanvien = () => {
     return (
         <div>
             <h1 >QUẢN LÝ HỒ SƠ NHÂN SỰ</h1>
-            <Link to="/ThemNhanvien" className='btn btn-success'>
+            <div className='bt-them-page'>
+                            <Link to="/ThemNhanvien" className='btn btn-success'>
                 Thêm nhân viên
-            </Link><div></div>
+            </Link>
+            </div>
+
             <h3>
                 <select onChange={(e) => setSelectedOption({ ...selectedOption, selecto: e.target.value })}>
                     <option value='Hoten'>Chọn một trường</option>

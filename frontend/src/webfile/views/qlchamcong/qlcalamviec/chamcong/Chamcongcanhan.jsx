@@ -114,7 +114,7 @@ const Cccanhan = () => {
     }, [Chamcong.Idcalamviec]);
     return (
         <div>
-                        <div>
+            <div>
                 <div className={isselectVisible ? "select_calamviec show" : "select_calamviec"}>
                     <div className="centeredTable">
                         <span>Danh Sách Ca Làm Chưa Chấm</span><button onClick={tacbang}>Tắt bảng</button><br />
@@ -144,30 +144,51 @@ const Cccanhan = () => {
                     </div>
                 </div>
             </div>
-            <h1>Chấm Công Cho : <span>{Nhansu.Hoten}</span><br />
-            {Chucvus.map((cv) => {
-                if (Nhansu.Chucvu === cv._id) {
-                    return <span key={cv._id}>chức vụ:{cv.Tenchucvu}</span>;
-                }
-                return null;
-            })}
-            <br />
-            <div className={chonVisible ? "selectcalam show" : "selectcalam"}>
-                <tr>tên ca:{selectcl.Tencalam}</tr><div></div>
-                <tr>daytime:{selectcl.Ngay}/{selectcl.Thang}/{selectcl.Nam}</tr><div></div>
-                <tr>Thời gian làm:{selectcl.Starttime + "H-" + selectcl.Endtime}H</tr><div></div>
-            </div>
-            </h1>
 
-            <button className='select_calam' onClick={hienthibang}>
-                Chọn Ca Làm Việc
-            </button><br />
-            <form onSubmit={luu}>
-                thời gian làm việc: <input type="number" onChange={(e) => setChamcong({ ...Chamcong, Thoigianlam: e.target.value })} placeholder='thời gian làm việc(giờ)' className='' required /> <br />
-                Lương: <input type="number" onChange={(e) => setChamcong({ ...Chamcong, luong: e.target.value })} placeholder='Nhập Lương (VND)' className='' required />
+            <h1>Chấm Công Cho : <span>{Nhansu.Hoten}</span><br />
+                {Chucvus.map((cv) => {
+                    if (Nhansu.Chucvu === cv._id) {
+                        return <span key={cv._id}>chức vụ:{cv.Tenchucvu}</span>;
+                    }
+                    return null;
+                })}
                 <br />
-                <button className='' >Lưu</button>
-            </form>
+
+            </h1>
+            <div className='form-them-nv'>
+                <div className='tachbentrong-themchamcong'>
+                    <div>
+
+
+                        <div className='namngang'>
+                            <div className='chen-left-chamcong'></div>
+                            <div className='motbombo-input'>
+                                <button className='chonca-lamviec' onClick={hienthibang}>
+                                    Chọn Ca Làm Việc
+                                </button>
+                                <div className={chonVisible ? "selectcalam show" : "selectcalam"}>
+                                    <tr>tên ca: {selectcl.Tencalam}</tr><div></div>
+                                    <tr>daytime: {selectcl.Ngay}/{selectcl.Thang}/{selectcl.Nam}</tr><div></div>
+                                    <tr>Thời gian làm: {selectcl.Starttime + "H-" + selectcl.Endtime}H</tr><div></div>
+                                </div>
+                            </div>
+                            <form className='right-form' onSubmit={luu}>
+                                <div className='motbombo-input'>
+                                    thời gian làm việc:<br /> <input type="number" onChange={(e) => setChamcong({ ...Chamcong, Thoigianlam: e.target.value })} placeholder='thời gian làm việc(giờ)' className='' required /> <br />
+                                    Lương:<br /> <input type="number" onChange={(e) => setChamcong({ ...Chamcong, luong: e.target.value })} placeholder='Nhập Lương (VND)' className='' required />
+                                    <br />
+
+
+                                </div>
+                                <div className='ngoai-them-nut-chamcong'>
+                                    <button className='chamcong-nut'>Lưu</button>
+                                </div>
+                            </form>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
         </div>
     );
 }

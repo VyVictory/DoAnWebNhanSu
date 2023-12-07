@@ -181,7 +181,7 @@ const Captaikhoan = () => {
                         <button className='ctk-button' onClick={toggleVisibility}>Cấp Tài Khoản</button>
                     </div>
                     <div className="ctk-tieude">
-                        <h3 className='ctk-h3'>Danh Sách Tài Khoản</h3>
+                        <h1 >Danh Sách Tài Khoản</h1>
                     </div>
                     <div className="">
                         <table className="table">

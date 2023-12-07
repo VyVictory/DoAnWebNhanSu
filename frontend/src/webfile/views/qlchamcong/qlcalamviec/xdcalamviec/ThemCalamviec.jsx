@@ -12,7 +12,7 @@ const ThemNhanvien = () => {
         Ngay: '',
         Thang: '',
         Nam: '',
-      });
+    });
     const navigate = useNavigate()
     const handleSubmit = (event) => {
         event.preventDefault();
@@ -42,50 +42,55 @@ const ThemNhanvien = () => {
         const day = selectedDate.getDate();
         const month = selectedDate.getMonth() + 1; // Adding 1 because getMonth returns zero-based month index
         const year = selectedDate.getFullYear();
-    
+
         setDay({
-          Ngay: day < 10 ? `0${day}` : `${day}`, // Ensure leading zero for single-digit days
-          Thang: month < 10 ? `0${month}` : `${month}`, // Ensure leading zero for single-digit months
-          Nam: `${year}`,
+            Ngay: day < 10 ? `0${day}` : `${day}`, // Ensure leading zero for single-digit days
+            Thang: month < 10 ? `0${month}` : `${month}`, // Ensure leading zero for single-digit months
+            Nam: `${year}`,
         });
-      };
+    };
 
     return (
         <div className='d-flex justify-content-center align-items-center mt-3'>
             <div className=''>
                 <h1 className=''>Thêm Ca Làm</h1>
                 <form className='form-them' onSubmit={handleSubmit}>
-                    <div className=''>
-                        <label className="">Tên ca làm:</label>
-                        <input type="text" placeholder='Nhap Tencalam' className=''
-                            onChange={(e) => setCalam({ ...Calam, Tencalam: e.target.value })}
-                            required />
+                    <div className='center-form'>
+                        <div className='motcombo-input'>
+                            <label className="">Tên ca làm:</label><br />
+                            <input type="text" placeholder='Nhap Tencalam' className=''
+                                onChange={(e) => setCalam({ ...Calam, Tencalam: e.target.value })}
+                                required />
+                        </div>
+
+                        <div className='motcombo-input'>
+                            <label className="">Starttime:</label><br />
+                            <input type="time" placeholder='Nhap Starttime' className=''
+                                onChange={(e) => setCalam({ ...Calam, Starttime: e.target.value })}
+                                required />
+                        </div>
+
+                        <div className='motcombo-input'>
+                            <label className="">Endtime:</label><br />
+                            <input type="time" placeholder='Nhap Endtime' className=''
+                                onChange={(e) => setCalam({ ...Calam, Endtime: e.target.value })}
+                                required />
+                        </div>
+
+                        <div>
+                            <label htmlFor="dateInput">Select a date: </label> <br />
+                            <input
+                                type="date"
+                                id="dateInput"
+                                onChange={handleDateChange}
+                                value={`${Day.Nam}-${Day.Thang}-${Day.Ngay}`} // Bind the selected value for the date input
+                            />
+                        </div>
                     </div>
-
-                    <div className=''>
-                        <label className="">Starttime:</label>
-                        <input type="time" placeholder='Nhap Starttime' className=''
-                            onChange={(e) => setCalam({ ...Calam, Starttime: e.target.value })}
-                            required />
+                    <div className='ngoai-bt-themcalam'>
+                          <button className='bt-themcalam'>Thêm Ca Làm</button>  
                     </div>
-
-                    <div className=''>
-                        <label className="">Endtime:</label>
-                        <input type="time" placeholder='Nhap Endtime' className=''
-                            onChange={(e) => setCalam({ ...Calam, Endtime: e.target.value })}
-                            required />
-                    </div>
-
-
-                    <label htmlFor="dateInput">Select a date: </label>
-                    <input
-                        type="date"
-                        id="dateInput"
-                        onChange={handleDateChange}
-                        value={`${Day.Nam}-${Day.Thang}-${Day.Ngay}`} // Bind the selected value for the date input
-                    />
-                    <br/>
-                    <button className=''>Them Ca Lam</button>
+                
                 </form>
             </div>
         </div>

@@ -46,7 +46,10 @@ const Qlvitri = () => {
             <div className="">
                 <h1>QUẢN LÝ VỊ TRÍ</h1>
             </div>
-            <Link to="/quanlycongtacnhanvien/ThemChucvu" className="btn btn-success">Them chuc vu</Link>
+            <div className="bt-them-page">
+                   <Link to="/quanlycongtacnhanvien/ThemChucvu" className="btn btn-success">Thêm Chức Vụ Mới</Link>   
+            </div>
+      
             <div className="">
                 <table className="table">
                     <thead>

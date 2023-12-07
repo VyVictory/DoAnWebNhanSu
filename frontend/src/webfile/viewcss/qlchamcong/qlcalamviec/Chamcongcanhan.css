@@ -4,19 +4,24 @@
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    background-color: rgba(0, 0, 0, 0.5);
+    background-color: rgb(175, 175, 175);
+    color: black;
+    border-radius: 20px;
+    border: 1px black solid;
+    box-shadow: 2px 2px black;
     padding: 20px;
     margin-top: 10px;
 }
 
 .table_calam_select{
-    background-color: ghostwhite;
     width: 220px;
     height: 100px;
     margin-left: -6px;
     margin-right: -6px;
     margin-top: -1px;
     margin: 10px;
+    background-color: aqua  ;
+    font-size: 14px;
 }
 .selectcalam{
     display: none;
@@ -31,6 +36,11 @@
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    background-color: rgba(0, 0, 0, 0.5);
+    background-color: rgb(175, 175, 175);
+    color: black;
+    border-radius: 20px;
+    border: 1px black solid;
+    box-shadow: 2px 2px black;
     padding: 20px;
+    margin-top: 10px;
   }
