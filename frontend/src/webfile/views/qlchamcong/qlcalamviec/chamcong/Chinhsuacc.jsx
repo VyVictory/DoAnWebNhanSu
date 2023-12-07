@@ -24,9 +24,6 @@ const Chinhsuacc = () => {
     useEffect(() => {
         axios.get("http://localhost:3000/nhansu/"+ idns)
         .then(Response => { if(Response.data) {setNhansu(Response.data);} else {alert(Response.data)}}).catch(err => console.log(err))
-
-        axios.get("http://localhost:3000/chamcong/"+ idcc)
-        .then((Response) => setChamcong(Response.data)).catch(err => console.log(err));
         
         axios.get("http://localhost:3000/calamviec/"+ idcl)
         .then((Response) => setcalam(Response.data)).catch(err => console.log(err));
@@ -35,7 +32,10 @@ const Chinhsuacc = () => {
         axios.get('http://localhost:3000/chucvu')
         .then(response => {if(response.data) {setChucvu(response.data);}else {alert('No data found');}}).catch(err => console.log(err));
     })
-
+    useEffect(() => {
+        axios.get("http://localhost:3000/chamcong/"+ idcc)
+        .then((Response) => setChamcong(Response.data)).catch(err => console.log(err));    
+    },[])
     const dataToSend = {
         Idns: Chamcong.Idns,
         Idcalamviec: Chamcong.Idcalamviec,

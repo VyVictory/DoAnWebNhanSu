@@ -11,13 +11,14 @@ import { ChamcongModule } from 'chamcong/chamcong.module';
 import { ConfigModule } from '@nestjs/config';
 //import { RoleModule } from 'role/role.module';
 import { AccountModule } from 'account/account.module';
+import { TinhluongModule } from 'tinhluong/tinhluong.module';
 @Module({
   imports: [ConfigModule.forRoot({
     envFilePath:'evn',
     isGlobal:true,
   }),
   MongooseModule.forRoot('mongodb://127.0.0.1:27017/doan1'),
-    NhansuModule, ChucvuModule, CalamviecModule, ChamcongModule, AccountModule],
+    NhansuModule, ChucvuModule, CalamviecModule, ChamcongModule, AccountModule, TinhluongModule],
   controllers: [AppController],
   providers: [AppService],
 })

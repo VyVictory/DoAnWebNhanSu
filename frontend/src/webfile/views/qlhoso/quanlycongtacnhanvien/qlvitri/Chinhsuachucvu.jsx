@@ -44,7 +44,7 @@ const Chinhsuachucvu = () => {
                 }
             })
             .catch(err => console.log(err));
-    },)
+    },[])
     return (
         <div className='Chinhsuachucvu'>
             <form className='' onSubmit={handleSubmit}>
@@ -57,7 +57,7 @@ const Chinhsuachucvu = () => {
                 </div>
 
                 <div className=''>
-                    <label for="inputCCCD" className="" htmlFor="CCCD">Ghi Chú:</label>
+                    <label>Ghi Chú:</label>
                     <input type="text" placeholder='Nhập Ghi Chú' value={Chucvu.Ghichu} onChange={(e) => setChucvu({ ...Chucvu, Ghichu: e.target.value })} />
                 </div>
 

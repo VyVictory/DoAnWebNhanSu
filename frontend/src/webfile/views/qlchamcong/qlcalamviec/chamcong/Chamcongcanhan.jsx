@@ -113,20 +113,8 @@ const Cccanhan = () => {
             .then((Response) => setSelectcl(Response.data)).catch(err => console.log(err));
     }, [Chamcong.Idcalamviec]);
     return (
-        <div>Chấm Công Cho : <span>{Nhansu.Hoten}</span><br />
-            {Chucvus.map((cv) => {
-                if (Nhansu.Chucvu === cv._id) {
-                    return <span key={cv._id}>chức vụ:{cv.Tenchucvu}</span>;
-                }
-                return null;
-            })}
-            <br />
-            <div className={chonVisible ? "selectcalam show" : "selectcalam"}>
-                <tr>tên ca:{selectcl.Tencalam}</tr><div></div>
-                <tr>daytime:{selectcl.Ngay}/{selectcl.Thang}/{selectcl.Nam}</tr><div></div>
-                <tr>Thời gian làm:{selectcl.Starttime + "H-" + selectcl.Endtime}H</tr><div></div>
-            </div>
-            <div>
+        <div>
+                        <div>
                 <div className={isselectVisible ? "select_calamviec show" : "select_calamviec"}>
                     <div className="centeredTable">
                         <span>Danh Sách Ca Làm Chưa Chấm</span><button onClick={tacbang}>Tắt bảng</button><br />
@@ -156,6 +144,21 @@ const Cccanhan = () => {
                     </div>
                 </div>
             </div>
+            <h1>Chấm Công Cho : <span>{Nhansu.Hoten}</span><br />
+            {Chucvus.map((cv) => {
+                if (Nhansu.Chucvu === cv._id) {
+                    return <span key={cv._id}>chức vụ:{cv.Tenchucvu}</span>;
+                }
+                return null;
+            })}
+            <br />
+            <div className={chonVisible ? "selectcalam show" : "selectcalam"}>
+                <tr>tên ca:{selectcl.Tencalam}</tr><div></div>
+                <tr>daytime:{selectcl.Ngay}/{selectcl.Thang}/{selectcl.Nam}</tr><div></div>
+                <tr>Thời gian làm:{selectcl.Starttime + "H-" + selectcl.Endtime}H</tr><div></div>
+            </div>
+            </h1>
+
             <button className='select_calam' onClick={hienthibang}>
                 Chọn Ca Làm Việc
             </button><br />

@@ -15,8 +15,12 @@ const Chinhsua = () => {
         Ngay:'',
         Thang:'',
         Nam:''
-    },[])
-    
+    })
+    const [Day, setDay] = useState({
+        Ngay: '',
+        Thang: '',
+        Nam: '',
+      });
     const navigate = useNavigate()
     const handleSubmit = (event) => {
 		event.preventDefault();
@@ -24,9 +28,9 @@ const Chinhsua = () => {
             Tencalam: Calam.Tencalam,
             Starttime: Calam.Starttime,
             Endtime: Calam.Endtime,
-            Ngay: Calam.Ngay,
-            Thang: Calam.Thang,
-            Nam: Calam.Nam
+            Ngay: +Day.Ngay,
+            Thang: +Day.Thang,
+            Nam: +Day.Nam
         };    
         if(dataToSend.Nam>9999){
             alert("vui lòng kiểm tra lại năm");
@@ -49,7 +53,19 @@ const Chinhsua = () => {
             }
         })
         .catch(err => console.log(err))
-    },)
+    },[])
+    const handleDateChange = (event) => {
+        const selectedDate = new Date(event.target.value);
+        const day = selectedDate.getDate();
+        const month = selectedDate.getMonth() + 1; // Adding 1 because getMonth returns zero-based month index
+        const year = selectedDate.getFullYear();
+    
+        setDay({
+          Ngay: day < 10 ? `0${day}` : `${day}`, // Ensure leading zero for single-digit days
+          Thang: month < 10 ? `0${month}` : `${month}`, // Ensure leading zero for single-digit months
+          Nam: `${year}`,
+        });
+      };
   return (
     <div className=''>
         <div className=''>
@@ -76,12 +92,14 @@ const Chinhsua = () => {
                     required/>
                 </div>
 
-                <div className=''>
-                    <label className="">ngay:</label>
-                <input type="date" value={Calam.Nam+"-"+Calam.Thang+"-"+Calam.Ngay} placeholder='Nhap ngày' className=''
-                    onChange ={(e) => setCalam({...Calam, Ngay: e.target.value})}
-                    required/>
-                </div>
+                <label htmlFor="dateInput">Select a date: </label>
+                    <input
+                        type="date"
+                        id="dateInput"
+                        onChange={handleDateChange}
+                        value={`${Day.Nam}-${Day.Thang}-${Day.Ngay}`} // Bind the selected value for the date input
+                    />
+                    <br/>
                 <button className=''>sửa</button>
             </form>
         </div>

@@ -1,4 +1,5 @@
 import '../../viewcss/Bar/Bar.css';
+
 const Bar = () => {
     const handleSubmitLogout = (event) => {
         event.preventDefault();
@@ -21,6 +22,9 @@ const Bar = () => {
         axios.get('http://localhost:3000/account/' + Uid)
             .then((res) => setTaikhoan(res.data)).catch(err => console.log(err))
     }, [])*/
+
+    
+
 
     function captaikhoanslect() {
         return <li className='sl'>
@@ -103,14 +107,17 @@ const Bar = () => {
                                             </div>
                                         </div>
                                     )}
+                                    {(UQuyentruyvan.includes("qltl") && UQuyentruyvan.includes("admin")) && (
                                     <a href="/lapbangchamcong" className='linksl'>
                                         <button type='button' class='but'><p className='selectlink'>Lập Bảng Chấm Công</p></button>
                                     </a>
+                                       )}
                                 </div>
                             </div>
                         </div>
                     </li>
                 )}
+                {(UQuyentruyvan.includes("qltl") && UQuyentruyvan.includes("admin")) && (
                 <li className='sl'>
                     <button type="button" class="quanlytienluong" data-toggle="collapse" data-target="#idqltl">Quản Lý Tiền Lương</button>
                     <div id="idqltl" class="collapse">
@@ -127,6 +134,7 @@ const Bar = () => {
                     </div>
 
                 </li>
+                  )}
                 {UQuyenhang !== "0" ? null : captaikhoanslect()}
             </div>
             <div className="rightbar">

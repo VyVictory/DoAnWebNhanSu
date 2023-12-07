@@ -160,15 +160,17 @@ const Chamcong = () => {
                 </div>
             </div>
             <div>
-                <select onChange={(e) => setSelectedOption({ ...selectedOption, selecto: e.target.value })}>
-                    <option value=''>Chọn một trường</option>
-                    <option value="Hoten">Họ Tên</option>
-                    <option value="Mnv">Mnv</option>
-                </select>
+                <h3>
+                    <select onChange={(e) => setSelectedOption({ ...selectedOption, selecto: e.target.value })}>
+                        <option value=''>Chọn một trường</option>
+                        <option value="Hoten">Họ Tên</option>
+                        <option value="Mnv">Mnv</option>
+                    </select>
 
-                <input type='text' ref={inputRef} onChange={(e) => { setTutim({ ...tutim, tutim: e.target.value })}} placeholder='từ khóa tìm'></input>
-                <button onClick={handleTim}>Tìm</button>
-                <button onClick={() => { resettimkiem(); resettimkiemtext(); }}>reset</button>
+                    <input className='input-tim-kiem' type='text' ref={inputRef} onChange={(e) => { setTutim({ ...tutim, tutim: e.target.value }) }} placeholder='từ khóa tìm'></input>
+                    <button className='cachra' onClick={handleTim}>Tìm</button>
+                    <button className='cachra' onClick={() => { resettimkiem(); resettimkiemtext(); }}>reset</button>
+                </h3>
             </div>
             <table className='table'>
                 <thead>

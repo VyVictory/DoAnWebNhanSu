@@ -65,10 +65,11 @@ const Qlthongtinnhanvien = () => {
     }
     return (
         <div>
+            <h1 >QUẢN LÝ HỒ SƠ NHÂN SỰ</h1>
             <Link to="/ThemNhanvien" className='btn btn-success'>
                 Thêm nhân viên
             </Link><div></div>
-            <div>
+            <h3>
                 <select onChange={(e) => setSelectedOption({ ...selectedOption, selecto: e.target.value })}>
                     <option value='Hoten'>Chọn một trường</option>
                     <option value="Hoten">Họ Tên</option>
@@ -78,10 +79,10 @@ const Qlthongtinnhanvien = () => {
                     <option value="luong">Luong</option>
                 </select>
 
-                <input type='text' ref={inputRef} onChange={(e) => { setTutim({ ...tutim, tutim: e.target.value })}} placeholder='từ khóa tìm'></input>
-                <button onClick={handleTim}>Tìm</button>
-                <button onClick={() => { resettimkiem(); resettimkiemtext(); }}>reset</button>
-            </div>
+                <input className='input-tim-kiem' type='text' ref={inputRef} onChange={(e) => { setTutim({ ...tutim, tutim: e.target.value }) }} placeholder='từ khóa tìm'></input>
+                <button className='cachra' onClick={handleTim}>Tìm</button>
+                <button className='cachra'  onClick={() => { resettimkiem(); resettimkiemtext(); }}>reset</button>
+            </h3>
 
             {isButtonClicked ? (
                 <table className='table'>
@@ -89,18 +90,33 @@ const Qlthongtinnhanvien = () => {
                     <tbody>
                         {
                             loc.map(e => {
-                                const correspondingChucvu = Chucvu.find((c) => c._id === e.Chucvu);
+                                const correspondingChucvu = Chucvu.find((c) => c._id === e.Chucvu || Chucvu.some(item => item._id !== e.Chucvu));
                                 if (correspondingChucvu && +correspondingChucvu.Quyenhang > +UQuyenhang) {
-                                    return {
-                                        id: e._id,
-                                        Hoten: e.Hoten,
-                                        Cccd: e.Cccd,
-                                        Mnv: e.Mnv,
-                                        Sdt: e.Sdt,
-                                        luong: e.luong,
-                                        Tenchucvu: correspondingChucvu.Tenchucvu,
-                                        Quyenhang: correspondingChucvu.Quyenhang,
-                                    };
+                                    if (Chucvu.some(item => item._id === e.Chucvu)) {
+                                        return {
+                                            id: e._id,
+                                            Hoten: e.Hoten,
+                                            Cccd: e.Cccd,
+                                            Mnv: e.Mnv,
+                                            Sdt: e.Sdt,
+                                            luong: e.luong,
+                                            Tenchucvu: correspondingChucvu.Tenchucvu,
+                                            Quyenhang: correspondingChucvu.Quyenhang,
+
+                                        };
+                                    }
+                                    else {
+                                        return {
+                                            id: e._id,
+                                            Hoten: e.Hoten,
+                                            Cccd: e.Cccd,
+                                            Mnv: e.Mnv,
+                                            Sdt: e.Sdt,
+                                            luong: e.luong,
+                                            Tenchucvu: 'không có',
+                                            Quyenhang: 'không'
+                                        };
+                                    }
                                 } else {
                                     return null;
                                 }
@@ -116,7 +132,7 @@ const Qlthongtinnhanvien = () => {
                                         <td>{e.luong}</td>
                                         <td>{e.Tenchucvu ? e.Tenchucvu : '-'}</td>
                                         <td>{e.Quyenhang ? e.Quyenhang : '-'}</td>
-                                        <td>
+                                        <td className='td-tuychon'>
                                             <Link to={'/quanlythongtinnhanvien/Chinhsua/&idns=' + e.id} className='btn btn-info btn-sm me-2'> Chinh sua </Link>
                                             <button className='all-bt-delete' onClick={() => handleDelete(e.id)}> Xoa</button>
                                         </td>
@@ -132,18 +148,34 @@ const Qlthongtinnhanvien = () => {
                     <tbody>
                         {
                             Nhansus.map(e => {
-                                const correspondingChucvu = Chucvu.find((c) => c._id === e.Chucvu);
+                                const correspondingChucvu = Chucvu.find((c) => c._id === e.Chucvu || Chucvu.some(item => item._id !== e.Chucvu));
                                 if (correspondingChucvu && +correspondingChucvu.Quyenhang > +UQuyenhang) {
-                                    return {
-                                        id: e._id,
-                                        Hoten: e.Hoten,
-                                        Cccd: e.Cccd,
-                                        Mnv: e.Mnv,
-                                        Sdt: e.Sdt,
-                                        luong: e.luong,
-                                        Tenchucvu: correspondingChucvu.Tenchucvu,
-                                        Quyenhang: correspondingChucvu.Quyenhang,
-                                    };
+                                    if (Chucvu.some(item => item._id === e.Chucvu)) {
+                                        return {
+                                            id: e._id,
+                                            Hoten: e.Hoten,
+                                            Cccd: e.Cccd,
+                                            Mnv: e.Mnv,
+                                            Sdt: e.Sdt,
+                                            luong: e.luong,
+                                            Tenchucvu: correspondingChucvu.Tenchucvu,
+                                            Quyenhang: correspondingChucvu.Quyenhang,
+
+                                        };
+                                    }
+                                    else {
+                                        return {
+                                            id: e._id,
+                                            Hoten: e.Hoten,
+                                            Cccd: e.Cccd,
+                                            Mnv: e.Mnv,
+                                            Sdt: e.Sdt,
+                                            luong: e.luong,
+                                            Tenchucvu: 'không có',
+                                            Quyenhang: 'không'
+                                        };
+                                    }
+
                                 } else {
                                     return null;
                                 }

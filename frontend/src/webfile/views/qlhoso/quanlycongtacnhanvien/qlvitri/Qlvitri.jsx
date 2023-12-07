@@ -1,40 +1,50 @@
-import React,{ useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import axios from "axios";
-import {Link, useNavigate } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 const Qlvitri = () => {
     const navigate = useNavigate()
     const [Chucvu, setChucvu] = useState([])
+    const [Nhansu, setNhansu] = useState([])
     const UQuyenhang = sessionStorage.getItem('UQuyenhang');
-    useEffect(() =>{
+    useEffect(() => {
         axios.get('http://localhost:3000/chucvu')
-        .then(Response => {
-            if(Response.data) {
-                setChucvu(Response.data);
-            } else {
-                alert(Response.data)
-            }
-        })
-        .catch(err => console.log(err))
+            .then(Response => {
+                if (Response.data) {
+                    setChucvu(Response.data);
+                } else {
+                    alert(Response.data)
+                }
+            })
+            .catch(err => console.log(err))
+        axios.get('http://localhost:3000/nhansu')
+            .then(Response => {
+                if (Response.data) {
+                    setNhansu(Response.data);
+                } else {
+                    alert(Response.data)
+                }
+            })
+            .catch(err => console.log(err))
     }, []);
 
     const handleDelete = (id) => {
-    axios.delete("http://localhost:3000/chucvu/" + id)
-        .then(Response => {
-            if (Response.data) {
-                // Update state after successful deletion
-                setChucvu(Chucvu.filter(cv => cv._id !== id));
-                navigate('/quanlycongtacnhanvien/quanlyvitri');
-            } else {
-                alert("Delete operation failed");
-            }
-        })
-        .catch(err => console.log(err));
+        axios.delete("http://localhost:3000/chucvu/" + id)
+            .then(Response => {
+                if (Response.data) {
+                    // Update state after successful deletion
+                    setChucvu(Chucvu.filter(cv => cv._id !== id));
+                    navigate('/quanlycongtacnhanvien/quanlyvitri');
+                } else {
+                    alert("Delete operation failed");
+                }
+            })
+            .catch(err => console.log(err));
     };
 
-    return ( 
+    return (
         <div className="">
             <div className="">
-                <h3>Chuc vu</h3>
+                <h1>QUẢN LÝ VỊ TRÍ</h1>
             </div>
             <Link to="/quanlycongtacnhanvien/ThemChucvu" className="btn btn-success">Them chuc vu</Link>
             <div className="">
@@ -50,14 +60,14 @@ const Qlvitri = () => {
                         {
                             Chucvu.slice() // Tạo một bản sao của mảng Chucvu để tránh thay đổi mảng gốc
                                 .sort((a, b) => a.Quyenhang - b.Quyenhang) // Sắp xếp mảng theo Quyenhang từ nhỏ đến lớn
-                                .filter(cv => cv.Quyenhang > UQuyenhang)// lọc quyền lớn hơn ra 
+                                .filter(cv => +cv.Quyenhang > +UQuyenhang)// lọc quyền lớn hơn ra 
                                 .map(cv => (
                                     <tr key={cv._id}>
-                                        <td>{cv.Tenchucvu}</td> 
+                                        <td>{cv.Tenchucvu}</td>
                                         <td>{cv.Ghichu}</td>
-                                        <td>{cv.Quyenhang}</td>  
+                                        <td>{cv.Quyenhang}</td>
                                         <td className='td-tuychon'>
-                                            <Link to={'/quanlythongtinnhanvien/Chinhsuachucvu/&idcv='+ cv._id} className='btn btn-info btn-sm me-2'>
+                                            <Link to={'/quanlythongtinnhanvien/Chinhsuachucvu/&idcv=' + cv._id} className='btn btn-info btn-sm me-2'>
                                                 Chinh sua
                                             </Link>
                                             <button className='all-bt-delete' onClick={() => handleDelete(cv._id)}>
@@ -71,8 +81,8 @@ const Qlvitri = () => {
                 </table>
             </div>
         </div>
-            
-     );
+
+    );
 }
- 
+
 export default Qlvitri;

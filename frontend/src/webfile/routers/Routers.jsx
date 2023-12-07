@@ -24,8 +24,15 @@ import Chinhsuachucvu from "../views/qlhoso/quanlycongtacnhanvien/qlvitri/Chinhs
 import ThemCalamviec from "../views/qlchamcong/qlcalamviec/xdcalamviec/ThemCalamviec";
 import Login from "../login/login";
 import Captaikhoan from "../views/qlhoso/quanlycongtacnhanvien/Captaikhoan";
-
 function Routers() {
+
+
+      //  axios.get('http://localhost:3000/chucvu')
+      //  axios.get('http://localhost:3000/nhansu')
+
+
+          
+      
     const [onevent, setOnevent] = useState(false);
     useEffect(() => {
         const loggedIn = sessionStorage.getItem('loggedIn');

@@ -134,3 +134,46 @@
     background-color: red;
     color: white;
 }
+h1{
+    text-align: center;
+}
+h3{
+    text-align: center;
+}
+.cachra{
+margin-left: 10px;
+background-color: green;
+color: white;
+padding-bottom: 4px;
+border-radius: 10px;
+width: 80px;
+}
+.input-tim-kiem{
+    margin-left: 10px;
+    height: 40px;
+    border-radius: 10px;
+}
+.form-them{
+    font-size: 40px;
+    border: 2px black solid;
+    margin: 10px;
+}
+.tachbentrong{
+    margin-left: 200px;
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+.them-nut{
+    background-color: green;
+    padding-bottom: 10px;
+    border-radius: 30px;
+    color: white;
+}
+.them-nut:hover{
+    background-color: aqua;
+    color: green;
+}
+.ngoai-them-nut{
+    margin-left: 500px;
+    padding-top: 30px;
+}

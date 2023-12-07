@@ -17,6 +17,7 @@ const calamviec_module_1 = require("./calamviec/calamviec.module");
 const chamcong_module_1 = require("./chamcong/chamcong.module");
 const config_1 = require("@nestjs/config");
 const account_module_1 = require("./account/account.module");
+const tinhluong_module_1 = require("./role/tinhluong.module");
 let AppModule = class AppModule {
 };
 exports.AppModule = AppModule;
@@ -27,7 +28,7 @@ exports.AppModule = AppModule = __decorate([
                 isGlobal: true,
             }),
             mongoose_1.MongooseModule.forRoot('mongodb://127.0.0.1:27017/doan1'),
-            nhansu_module_1.NhansuModule, chucvu_module_1.ChucvuModule, calamviec_module_1.CalamviecModule, chamcong_module_1.ChamcongModule, account_module_1.AccountModule],
+            nhansu_module_1.NhansuModule, chucvu_module_1.ChucvuModule, calamviec_module_1.CalamviecModule, chamcong_module_1.ChamcongModule, account_module_1.AccountModule, tinhluong_module_1.TinhluongModule],
         controllers: [app_controller_1.AppController],
         providers: [app_service_1.AppService],
     })
