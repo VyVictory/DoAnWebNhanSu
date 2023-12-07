@@ -1,0 +1,201 @@
+.ctk-all {
+    padding:10px;
+}
+.ctk-container {
+    display: block;
+
+    font-size: 25px;
+    margin-left: 350px;
+    width: 1000px;
+    margin-top: 80px;
+    height: 600px;
+    outline: solid 2px black;
+    border-radius: 20px;
+    background-color: ghostwhite;
+    box-shadow: black 3px 3px;
+}
+.ctk-child {
+    border-radius: 20px;
+    width: 100%;
+    height: 100%;
+    /* Center horizontally*/
+    margin: 0 auto;
+    margin-top: -60px;
+}
+
+
+.ctk-hover-element:hover::after {
+    content: attr(title);
+    /* Hiển thị nội dung của thuộc tính title */
+    position: absolute;
+    background-color: rgb(71, 171, 243);
+    color: white;
+    padding: 5px;
+    border-radius: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: 220px;
+    /* Hiển thị bên dưới phần tử */
+    white-space: nowrap;
+    /* Tránh quá dài sẽ bị ngắt dòng */
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.ctk-hover-element:hover::after {
+    opacity: 1;
+    /* Hiển thị khi hover */
+}
+.ctk-input-conten {
+    display: flex;
+    width: 82%;
+    margin-left: 8%;
+    margin-top: 20px;
+    border-radius: 10px;
+    border: 0.1px solid rgb(169, 169, 169);
+    
+}
+
+.ctk_quyentruyvan {
+    text-transform: uppercase;
+    background-color:aliceblue;
+    padding-left: 20px;
+    border-top-right-radius: 20px;
+    border-bottom-right-radius: 20px;
+    padding-right: 10px;
+    border-left: solid 0.1px rgb(169, 169, 169) ;
+    width: 100%;
+
+}
+
+.ctk-bt-tao {
+    text-align: center;
+}
+
+.ctk-tille {
+    text-align: center;
+    padding-top: 10px;
+}
+
+.ctk-input-text {
+    padding-left: 20px;
+    background-color: aliceblue;
+    padding-right: 20px;
+    padding-bottom: 20px;
+    border-bottom-left-radius: 20px;
+    border-top-left-radius: 20px;
+}
+
+.ctk-tille-input {
+    font-size: 20px;
+    margin-bottom: -10px;
+    margin-top: 6px;
+    margin-left: 5px;
+}
+input[type="checkbox"].ctk-checkbox {
+    width: 20px; /* Chiều rộng mong muốn */
+    height: 20px; /* Chiều cao mong muốn */
+  }
+.ctk-bt-tao{
+    margin-top: 16px;
+}
+.ctk-nut{
+    width: 200px;
+    height: 50px;
+    border-radius: 10px;
+    background-color: green;
+    color: white;
+}
+.ctk-nut:hover{
+    background-color: rgb(1, 74, 1);
+}
+/* ctk-input */
+.ctk-input{
+    border-radius: 10px;
+    padding-left: 10px;
+}
+.ctk-bt-tac{
+    margin-left: 940px;
+    margin-right: 20px;
+    margin-top: 20px;
+    width: 40px;
+    height: 40px;
+    padding-bottom: 10px;
+    color: white;
+    background-color: green;
+    border-radius: 10px;
+}
+
+.ctk-bt-tac:hover{
+    background-color: red;
+}
+.ctk-tieude{
+    text-align: center;
+}
+.ctk-h3{
+    font-size: 30px;
+}
+.ctk-bt-captk{
+    float: right;
+}
+.ctk-button{
+    height: 40px;
+    border-radius: 10px;
+    background-color: rgb(6, 203, 108);
+    color: rgb(0, 0, 0);
+    color: white;
+}
+.ctk-button:hover{
+    background-color: aqua;
+    color: black;
+}
+
+
+
+
+
+.ctk-select-button{
+    float: right;
+    margin-right: 20px;
+}
+.ctk-select-tieude{
+    float: right;
+    margin-right: 60px;
+}
+.ctk-table{
+    width: 100%;
+    font-size: 20px;
+    border: 1px solid gainsboro;
+}
+tr, th, td{
+    border: 1px solid gainsboro;
+    text-align: center;
+}
+table{
+    text-align: center;
+    box-shadow: 2px 2px gray;
+}
+.all-bt-delete{
+    width: 60px;
+    height: 30px;
+    float: right;
+    background-color:coral;
+    border: solid chocolate 1px;
+
+}
+.all-bt-delete:hover{
+    background-color: red;
+}
+.td-tuychon{
+    width: 200px;
+}
+.bt-chamlai{
+    margin-left: 10px;
+    width: 80px;
+    height: 30px;
+    background-color: coral;
+    border: solid chocolate 1px;
+}
+.bt-chamlai:hover{
+    background-color: red;
+}
