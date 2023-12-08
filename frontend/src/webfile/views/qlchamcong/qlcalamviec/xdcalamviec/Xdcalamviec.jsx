@@ -8,11 +8,13 @@ const Xdcalamviec = () => {
     const [Calams, setCalam] = useState([])
     const [searchTerm, setSearchTerm] = useState('');
     const [timtheo, setTimTheo] = useState('Tencalam');
+    const UQuyentruyvan = sessionStorage.getItem('UQuyentruyvan');
     useEffect(() => {
         axios.get('http://localhost:3000/calamviec')
             .then((res) => setCalam(res.data))
             .catch(err => console.log(err))
     })
+
     const filteredCalams = Calams.filter(e => {
         const searchTermLower = searchTerm.toLowerCase();
         let dayly = e.Ngay + '/' + e.Thang + '/' + e.Nam;
@@ -40,40 +42,43 @@ const Xdcalamviec = () => {
     };
 
     const handleDelete = (id) => {
-        axios.delete("http://localhost:3000/calamviec/" + id)
-            .then(Response => {
-                if (Response.data) {
-                    // Update state after successful deletion
-                    setCalam(Calams.filter(cl => cl._id !== id));
-                    navigate('/quanlychamcong/quanlycalamviec/xaydungcalamviec');
-                } else {
-                    alert("Delete operation failed");
-                }
-            })
+        if (UQuyentruyvan.includes("xoa")||UQuyentruyvan==='admin') {
+            axios.delete("http://localhost:3000/calamviec/" + id)
+                .then(Response => {
+                    if (Response.data) {
+                        // Update state after successful deletion
+                        setCalam(Calams.filter(cl => cl._id !== id));
+                        navigate('/quanlychamcong/quanlycalamviec/xaydungcalamviec');
+                    } else {
+                        alert("Delete operation failed");
+                    }
+                })
+        }
+        else return alert('xóa không thành công do không có quyền')
     }
     return (
         <div>
             <h1>QUẢN LÝ CA LÀM VIỆC</h1>
-            <div className='bt-them-page'>           
-                 <Link to="/quanlychamcong/quanlycalamviec/xaydungcalamviec/themcalamviec" className='btn btn-success'>
-                Thêm Ca Làm Việc
-            </Link>
+            <div className='bt-them-page'>
+                <Link to="/quanlychamcong/quanlycalamviec/xaydungcalamviec/themcalamviec" className='btn btn-success'>
+                    Thêm Ca Làm Việc
+                </Link>
 
             </div>
 
             <h3>
-            <select onChange={handleChange} value={timtheo}>
-                <option value='Tencalam'>Tên</option>
-                <option value="Starttime">Thời Gian Bắc Đầu Ca</option>
-                <option value="Endtime">Thời Gian Kết Thúc Ca</option>
-                <option value="Days">Theo Ngày</option>
-            </select>
-            <input className='input-tim-kiem'
-                type="text"
-                placeholder="Search..."
-                value={searchTerm}
-                onChange={(e) => setSearchTerm(e.target.value)}
-            />
+                <select onChange={handleChange} value={timtheo}>
+                    <option value='Tencalam'>Tên</option>
+                    <option value="Starttime">Thời Gian Bắc Đầu Ca</option>
+                    <option value="Endtime">Thời Gian Kết Thúc Ca</option>
+                    <option value="Days">Theo Ngày</option>
+                </select>
+                <input className='input-tim-kiem'
+                    type="text"
+                    placeholder="Search..."
+                    value={searchTerm}
+                    onChange={(e) => setSearchTerm(e.target.value)}
+                />
             </h3>
             <table className='table'>
                 <thead>

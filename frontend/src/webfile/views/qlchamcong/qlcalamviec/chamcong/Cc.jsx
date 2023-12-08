@@ -107,6 +107,13 @@ const Chamcong = () => {
             <tr>tên ca:{ten}</tr><div></div>
             <tr>daytime:{ngay}/{thang}/{nam}</tr><div></div>
             <tr>Thời gian làm:{start + "H-" + end}H</tr><div></div>
+            <tr>Lương:{Chamcongs.map((cc) => {
+                                    if (cc.Idcalamviec === id && idnsedit===cc.Idns) {
+                                        return cc.luong;
+                                    }
+                                    return null;
+                                })}
+            </tr>
         </button>
     }
     // const [isButtonClicked, setIsButtonClicked] = useState(false);

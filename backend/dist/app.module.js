@@ -17,7 +17,7 @@ const calamviec_module_1 = require("./calamviec/calamviec.module");
 const chamcong_module_1 = require("./chamcong/chamcong.module");
 const config_1 = require("@nestjs/config");
 const account_module_1 = require("./account/account.module");
-const tinhluong_module_1 = require("./role/tinhluong.module");
+const tinhluong_module_1 = require("./tinhluong/tinhluong.module");
 let AppModule = class AppModule {
 };
 exports.AppModule = AppModule;

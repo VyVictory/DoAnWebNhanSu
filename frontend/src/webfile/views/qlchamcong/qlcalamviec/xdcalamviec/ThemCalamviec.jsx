@@ -83,7 +83,6 @@ const ThemNhanvien = () => {
                                 type="date"
                                 id="dateInput"
                                 onChange={handleDateChange}
-                                value={`${Day.Nam}-${Day.Thang}-${Day.Ngay}`} // Bind the selected value for the date input
                             />
                         </div>
                     </div>

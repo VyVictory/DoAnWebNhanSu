@@ -43,8 +43,13 @@ const Chinhsuacc = () => {
         luong: Chamcong.luong
     };
     function luu() {
-        axios.put('http://localhost:3000/chamcong/' + idcc, dataToSend)
-            .then(_res => { navigate('/quanlychamcong/quanlycalamviec/chamcong') }).catch(err => console.log(err));
+        if(Chamcong.Idcalamviec===''){
+            alert('vui lòng chọn ca làm')
+        }else{
+            axios.put('http://localhost:3000/chamcong/' + idcc, dataToSend)
+             .then(_res => { alert('chỉnh thành công');window.location.reload();}).catch(err => console.log(err));
+        }
+
     };
     return (
         <div>

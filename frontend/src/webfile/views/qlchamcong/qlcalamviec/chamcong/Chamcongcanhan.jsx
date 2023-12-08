@@ -50,8 +50,12 @@ const Cccanhan = () => {
             Thoigianlam: Chamcong.Thoigianlam,
             luong: Chamcong.luong
         };
+        if(Chamcong.Idcalamviec===''){
+            alert('vui lòng chọn ca làm')
+        }else{
         axios.post('http://localhost:3000/chamcong', dataToSend)
-            .then(_res => { navigate('/quanlychamcong/quanlycalamviec/chamcong') }).catch(err => console.log(err));
+            .then(_res => { alert('thêm thành công');window.location.reload(); }).catch(err => console.log(err));
+        }
     }
     const [selectcl, setSelectcl] = useState([])
     const [tranghientai, settranghientai] = useState(1);

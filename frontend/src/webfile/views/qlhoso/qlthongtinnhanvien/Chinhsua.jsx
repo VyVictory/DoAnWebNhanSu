@@ -15,15 +15,15 @@ const Chinhsua = () => {
         Sdt: '',
         luong: '',
         Chucvu: ''
-    })
+    },[])
     const navigate = useNavigate()
     const handleSubmit = (event) => {
         event.preventDefault();
         const dataToSend = {
             Hoten: Nhansu.Hoten,
             Cccd: Nhansu.Cccd,
-            Mnv: Nhansu.Cccd,
-            Sdt: Nhansu.Cccd,
+            Mnv: Nhansu.Mnv,
+            Sdt: Nhansu.Sdt,
             luong: Nhansu.luong,
             Chucvu: Nhansu.Chucvu
         };

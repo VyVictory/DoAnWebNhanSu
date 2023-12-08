@@ -6,6 +6,7 @@ const Qlthongtinnhanvien = () => {
     const navigate = useNavigate()
     const [Nhansus, setNhansu] = useState([])
     const UQuyenhang = sessionStorage.getItem('UQuyenhang');
+    const UQuyentruyvan = sessionStorage.getItem('UQuyentruyvan');
     const [Chucvu, setChucvu] = useState([])
     const inputRef = useRef(null);
     useEffect(() => {
@@ -17,11 +18,14 @@ const Qlthongtinnhanvien = () => {
     }, [])
 
     const handleDelete = (id) => {
-        axios.delete("http://localhost:3000/nhansu/" + id)
+        if (UQuyentruyvan.includes("xoa")||UQuyentruyvan==='admin') {
+                    axios.delete("http://localhost:3000/nhansu/" + id)
             .then(res => {
                 if (res.data) { setNhansu(Nhansus.filter(ns => ns._id !== id)); navigate('/quanlythongtinnhanvien') } else (alert(res.data)
                 )
             })
+        }
+        else return alert('xóa không thành công do không có quyền')
     }
     const [isButtonClicked, setIsButtonClicked] = useState(false);
     function resettimkiem() {
@@ -71,7 +75,6 @@ const Qlthongtinnhanvien = () => {
                 Thêm nhân viên
             </Link>
             </div>
-
             <h3>
                 <select onChange={(e) => setSelectedOption({ ...selectedOption, selecto: e.target.value })}>
                     <option value='Hoten'>Chọn một trường</option>
@@ -93,7 +96,18 @@ const Qlthongtinnhanvien = () => {
                     <tbody>
                         {
                             loc.map(e => {
-                                const correspondingChucvu = Chucvu.find((c) => c._id === e.Chucvu || Chucvu.some(item => item._id !== e.Chucvu));
+                                if(!Chucvu.some(item => item._id === e.Chucvu)){
+                                    return {
+                                        id: e._id,
+                                        Hoten: e.Hoten,
+                                        Cccd: e.Cccd,
+                                        Mnv: e.Mnv,
+                                        Sdt: e.Sdt,
+                                        luong: e.luong,
+                                        Tenchucvu: 'không có',
+                                        Quyenhang: 'không',
+                                }}
+                                const correspondingChucvu = Chucvu.find((c) => c._id === e.Chucvu);
                                 if (correspondingChucvu && +correspondingChucvu.Quyenhang > +UQuyenhang) {
                                     if (Chucvu.some(item => item._id === e.Chucvu)) {
                                         return {
@@ -109,17 +123,8 @@ const Qlthongtinnhanvien = () => {
                                         };
                                     }
                                     else {
-                                        return {
-                                            id: e._id,
-                                            Hoten: e.Hoten,
-                                            Cccd: e.Cccd,
-                                            Mnv: e.Mnv,
-                                            Sdt: e.Sdt,
-                                            luong: e.luong,
-                                            Tenchucvu: 'không có',
-                                            Quyenhang: 'không'
-                                        };
                                     }
+
                                 } else {
                                     return null;
                                 }
@@ -151,7 +156,18 @@ const Qlthongtinnhanvien = () => {
                     <tbody>
                         {
                             Nhansus.map(e => {
-                                const correspondingChucvu = Chucvu.find((c) => c._id === e.Chucvu || Chucvu.some(item => item._id !== e.Chucvu));
+                                if(!Chucvu.some(item => item._id === e.Chucvu)){
+                                    return {
+                                        id: e._id,
+                                        Hoten: e.Hoten,
+                                        Cccd: e.Cccd,
+                                        Mnv: e.Mnv,
+                                        Sdt: e.Sdt,
+                                        luong: e.luong,
+                                        Tenchucvu: 'không có',
+                                        Quyenhang: 'không',
+                                }}
+                                const correspondingChucvu = Chucvu.find((c) => c._id === e.Chucvu);
                                 if (correspondingChucvu && +correspondingChucvu.Quyenhang > +UQuyenhang) {
                                     if (Chucvu.some(item => item._id === e.Chucvu)) {
                                         return {
@@ -167,16 +183,6 @@ const Qlthongtinnhanvien = () => {
                                         };
                                     }
                                     else {
-                                        return {
-                                            id: e._id,
-                                            Hoten: e.Hoten,
-                                            Cccd: e.Cccd,
-                                            Mnv: e.Mnv,
-                                            Sdt: e.Sdt,
-                                            luong: e.luong,
-                                            Tenchucvu: 'không có',
-                                            Quyenhang: 'không'
-                                        };
                                     }
 
                                 } else {

@@ -6,6 +6,7 @@ const Qlvitri = () => {
     const [Chucvu, setChucvu] = useState([])
     const [Nhansu, setNhansu] = useState([])
     const UQuyenhang = sessionStorage.getItem('UQuyenhang');
+    const UQuyentruyvan = sessionStorage.getItem('UQuyentruyvan');
     useEffect(() => {
         axios.get('http://localhost:3000/chucvu')
             .then(Response => {
@@ -28,17 +29,20 @@ const Qlvitri = () => {
     }, []);
 
     const handleDelete = (id) => {
-        axios.delete("http://localhost:3000/chucvu/" + id)
-            .then(Response => {
-                if (Response.data) {
-                    // Update state after successful deletion
-                    setChucvu(Chucvu.filter(cv => cv._id !== id));
-                    navigate('/quanlycongtacnhanvien/quanlyvitri');
-                } else {
-                    alert("Delete operation failed");
-                }
-            })
-            .catch(err => console.log(err));
+        if (UQuyentruyvan.includes("xoa")||UQuyentruyvan==='admin') {
+            axios.delete("http://localhost:3000/chucvu/" + id)
+                .then(Response => {
+                    if (Response.data) {
+                        // Update state after successful deletion
+                        setChucvu(Chucvu.filter(cv => cv._id !== id));
+                        navigate('/quanlycongtacnhanvien/quanlyvitri');
+                    } else {
+                        alert("Delete operation failed");
+                    }
+                })
+                .catch(err => console.log(err));
+        }
+        else return alert('xóa không thành công do không có quyền')
     };
 
     return (
@@ -47,9 +51,9 @@ const Qlvitri = () => {
                 <h1>QUẢN LÝ VỊ TRÍ</h1>
             </div>
             <div className="bt-them-page">
-                   <Link to="/quanlycongtacnhanvien/ThemChucvu" className="btn btn-success">Thêm Chức Vụ Mới</Link>   
+                <Link to="/quanlycongtacnhanvien/ThemChucvu" className="btn btn-success">Thêm Chức Vụ Mới</Link>
             </div>
-      
+
             <div className="">
                 <table className="table">
                     <thead>

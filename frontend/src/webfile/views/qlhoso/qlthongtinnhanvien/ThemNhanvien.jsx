@@ -30,8 +30,8 @@ const ThemNhanvien = () => {
         const dataToSend = {
             Hoten: Nhansu.Hoten,
             Cccd: Nhansu.Cccd,
-            Mnv: Nhansu.Cccd,
-            Sdt: Nhansu.Cccd,
+            Mnv: Nhansu.Mnv,
+            Sdt: Nhansu.Sdt,
             luong: Nhansu.luong,
             Chucvu: Nhansu.Chucvu
         };
@@ -40,6 +40,7 @@ const ThemNhanvien = () => {
         }
         axios.post('http://localhost:3000/nhansu', dataToSend)
             .then(_res => {
+                alert('thêm thành công');
                 navigate('/quanlythongtinnhanvien')
             })
 
@@ -61,18 +62,18 @@ const ThemNhanvien = () => {
 
                                 <div className='motcombo-input'>
                                     <label for="inputCCCD" className="" htmlFor="CCCD">CCCD:</label><br />
-                                    <input type="number" placeholder='Nhap CCCD' onChange={(e) => setNhansu({ ...Nhansu, Cccd: e.target.value })} required /> </div>
+                                    <input type="text" placeholder='Nhap CCCD' onChange={(e) => setNhansu({ ...Nhansu, Cccd: e.target.value })} required /> </div>
 
                                 <div className='motcombo-input'>
-                                    <label for="inputID" className="" htmlFor="Mnv">Mã Nhân Viên:</label><br />
+                                    <label >Mã Nhân Viên:</label><br />
                                     <input type="text" placeholder='Nhap Mnv' onChange={(e) => setNhansu({ ...Nhansu, Mnv: e.target.value })} required /> </div>
                             </div>
                             <div>
                                 <div className='motcombo-input'>
-                                    <label for="inputSdt" className="" htmlFor="SDT">Số Điện Thoại:</label><br />
-                                    <input type="number" placeholder='Nhap SDT' onChange={(e) => setNhansu({ ...Nhansu, Sdt: e.target.value })} required /> </div>
+                                    <label >Số Điện Thoại:</label><br />
+                                    <input type="text" placeholder='Nhap SDT' onChange={(e) => setNhansu({ ...Nhansu, Sdt: e.target.value })} required /> </div>
                                 <div className='motcombo-input'>
-                                    <label for="inputLuong" className="">Lương:</label><br />
+                                    <label >Lương:</label><br />
                                     <input type="number" placeholder='Nhap Luong' className='' onChange={(e) => setNhansu({ ...Nhansu, luong: e.target.value })} required />
                                 </div>
                                 <div className='motcombo-input'>
@@ -87,7 +88,7 @@ const ThemNhanvien = () => {
 
                         </div>
                         <div className='ngoai-them-nut-nv'>
-                            <button className='them-nut'>Them Nhan vien</button>
+                            <button className='them-nut'>Thêm Nhân Viên</button>
                         </div>
 
                     </div>
